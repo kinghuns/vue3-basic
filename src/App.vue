@@ -2,6 +2,16 @@
 // import HelloWorld from './components/HelloWorld.vue'
 // import TheWelcome from './components/TheWelcome.vue'
 import { ref } from 'vue';
+const count = ref(0)
+
+console.log(count) // { value: 0 }
+console.log(count.value) // 0
+
+count.value++
+console.log(count.value) // 1  
+function increment() {
+  count.value++
+}
 
 //data
 const name = ref('Rechael');
@@ -21,6 +31,8 @@ const event = ref('dblclick');
 const blockLeave = () =>{
   alert("You can't leave!");
 }
+
+ // <h3>Today is {{ getFormattedDate(new Date()) }}</h3>
 </script>
 
 <template>
@@ -33,5 +45,8 @@ const blockLeave = () =>{
      {{  coding_years > 0 
       ? `I have been coding for ${coding_years}  years. `
        : "I'm a newbie." }}</h2>
-  <h3>Today is {{ getFormattedDate(New Date()) }}</h3>
+  <button @click="increment">
+    {{ count }}
+  </button>
+ 
 </template>
